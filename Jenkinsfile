@@ -17,7 +17,10 @@ pipeline {
             steps {
                 script {
                     // Ejecutar terraform --version para mostrar la versión de Terraform
-                    sh 'terraform init'
+                    sh """
+                        cd ~/.ssh
+                        pwd
+                    """
                 }
             }
         }
