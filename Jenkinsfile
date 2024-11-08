@@ -29,5 +29,11 @@ pipeline {
                 }
             }
         }
+
+         stage('Approve Terraform Apply') {
+            steps {
+                input message: 'Do you approve the Terraform apply?', ok: 'Yes, Apply'
+            }
+        }
     }
 }
