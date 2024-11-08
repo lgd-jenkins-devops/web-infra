@@ -2,8 +2,8 @@ pipeline {
     agent any 
 
     environment {
-        TF_VAR_PROJECT_ID = credentials('web-gcp-project')
-        TF_VAR_REGION = credentials('web-gcp-region')  
+        TF_VAR_project_id = credentials('web-gcp-project')
+        TF_VAR_region = credentials('web-gcp-region')  
     }
 
     stages {
