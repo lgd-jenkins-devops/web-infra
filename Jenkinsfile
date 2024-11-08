@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Imprimir "Hola Mundo" en la consola de Jenkins
-                    echo '¡Hola Mundo desde Jenkins!'
+                    terraform --version
                 }
             }
         }
