@@ -2,11 +2,11 @@ pipeline {
     agent any  // Ejecutar el pipeline en cualquier agente disponible
 
     stages {
-        stage('Hello World') {
+        stage('Terraform Version') {
             steps {
                 script {
-                    // Imprimir "Hola Mundo" en la consola de Jenkins
-                    terraform --version
+                    // Ejecutar terraform --version para mostrar la versión de Terraform
+                    sh 'terraform --version'
                 }
             }
         }
