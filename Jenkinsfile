@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         TF_VAR_project_id = credentials('web-gcp-project')
-        TF_VAR_region = credentials('web-gcp-region')  
+        TF_VAR_region = credentials('web-gcp-region')
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('google_application_credentials')
     }
 
     stages {
         stage('Terraform Init') {
             steps {
                 script {
-                    // Ejecutar terraform init
                     sh 'terraform init'
                 }
             }
@@ -19,7 +19,6 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 script {
-                    // Ejecutar terraform init
                     sh """
                         terraform plan \
                         -var-file="terraform.tfvars"
@@ -37,7 +36,6 @@ pipeline {
         stage('Terraform apply') {
             steps {
                 script {
-                    // Ejecutar terraform init
                     sh """
                         terraform apply \
                         -var-file="terraform.tfvars" -auto-approve
