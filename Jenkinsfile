@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Plan') {
+        stage('Terraform apply') {
             steps {
                 script {
                     // Ejecutar terraform init
