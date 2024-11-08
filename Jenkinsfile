@@ -2,8 +2,8 @@ pipeline {
     agent any 
 
     environment {
-        PROJECT_ID = credentials('web-gcp-project')
-        REGION = credentials('web-gcp-region')  
+        TF_VAR_PROJECT_ID = credentials('web-gcp-project')
+        TF_VAR_REGION = credentials('web-gcp-region')  
     }
 
     stages {
@@ -22,8 +22,6 @@ pipeline {
                     // Ejecutar terraform init
                     sh """
                         terraform plan \
-                        -var "project_id=$PROJECT_ID" \
-                        -var "region=$REGION" \
                         -var-file="terraform.tfvars"
                     """
                 }
@@ -42,8 +40,6 @@ pipeline {
                     // Ejecutar terraform init
                     sh """
                         terraform apply \
-                        -var "project_id=$PROJECT_ID" \
-                        -var "region=$REGION" \
                         -var-file="terraform.tfvars" -auto-approve
                     """
                 }
