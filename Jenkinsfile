@@ -24,7 +24,7 @@ pipeline {
                         terraform plan \
                         -var "project_id=$PROJECT_ID" \
                         -var "region=$REGION" \
-                        -var-file="terraform.tfvars" -out=tfplan
+                        -var-file="terraform.tfvars"
                     """
                 }
             }
@@ -44,7 +44,7 @@ pipeline {
                         terraform apply \
                         -var "project_id=$PROJECT_ID" \
                         -var "region=$REGION" \
-                        -var-file="terraform.tfvars" -auto-approve tfplan
+                        -var-file="terraform.tfvars" -auto-approve
                     """
                 }
             }
