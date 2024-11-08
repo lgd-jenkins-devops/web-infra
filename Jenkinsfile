@@ -21,7 +21,7 @@ pipeline {
                 script {
                     // Ejecutar terraform init
                     sh """
-                        terraform apply \
+                        terraform plan \
                         -var "project_id=$PROJECT_ID" \
                         -var "region=$REGION" \
                         -var-file="terraform.tfvars"
