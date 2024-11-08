@@ -24,7 +24,7 @@ pipeline {
                         terraform plan \
                         -var "project_id=$PROJECT_ID" \
                         -var "region=$REGION" \
-                        -var-file="terraform.tfvars"
+                        -var-file="terraform.tfvars" -out=tfplan
                     """
                 }
             }
@@ -33,6 +33,20 @@ pipeline {
          stage('Approve Terraform Apply') {
             steps {
                 input message: 'Do you approve the Terraform apply?', ok: 'Yes, Apply'
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    // Ejecutar terraform init
+                    sh """
+                        terraform apply \
+                        -var "project_id=$PROJECT_ID" \
+                        -var "region=$REGION" \
+                        -var-file="terraform.tfvars" -auto-approve tfplan
+                    """
+                }
             }
         }
     }
