@@ -2,7 +2,7 @@ pipeline {
     agent any  // Ejecutar el pipeline en cualquier agente disponible
 
     environment {
-        GIT_SSH_KEY = credentials('github-key')  // Aquí el ID de las credenciales SSH configuradas
+        GIT_SSH_KEY = credentials('github-ssh')  // Aquí el ID de las credenciales SSH configuradas
     }
 
     stages {
