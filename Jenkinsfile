@@ -1,23 +1,31 @@
 pipeline {
-    agent any  // Ejecutar el pipeline en cualquier agente disponible
+    agent any 
+
+    environment {
+        PROJECT_ID = credentials('web-gcp-project')
+        REGION = credentials('web-gcp-region')  
+    }
 
     stages {
-        // Paso 1: Imprimir "Hola Mundo"
-        stage('Hola Mundo') {
-            steps {
-                script {
-                    // Imprimir un mensaje en la consola
-                    echo '¡Hola Mundo desde Jenkins!'
-                }
-            }
-        }
-
-        // Paso 2: Mostrar la versión de Terraform
         stage('Terraform Init') {
             steps {
                 script {
                     // Ejecutar terraform init
                     sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    // Ejecutar terraform init
+                    sh """
+                        terraform apply \
+                        -var "project_id=$PROJECT_ID" \
+                        -var "region=$REGION" \
+                        -var-file="terraform.tfvars"
+                    """
                 }
             }
         }
