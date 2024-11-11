@@ -14,4 +14,5 @@ module "load-balance" {
   bucket_name = module.bucket.bucket_name
   path_cert = var.ssl.path_cert
   path_key = var.ssl.path_key
+  suffix = var.lb_suffix
 }

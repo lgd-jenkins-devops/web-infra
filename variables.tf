@@ -14,3 +14,6 @@ variable "bucket-type" {
 
 variable "web_config" {
 }
+
+variable "lb_suffix" {
+}
