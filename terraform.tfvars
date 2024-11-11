@@ -13,3 +13,5 @@ web_config = {
     "main" = "index.html"
     "error" = "404.html"
 }
+
+lb_suffix = "web-app"
