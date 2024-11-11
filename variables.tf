@@ -17,3 +17,6 @@ variable "web_config" {
 
 variable "lb_suffix" {
 }
+
+variable "backend"{
+}
