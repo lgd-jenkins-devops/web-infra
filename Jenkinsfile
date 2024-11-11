@@ -21,7 +21,7 @@ pipeline {
                 script {
                     sh """
                         terraform plan \
-                        -var-file="terraform.tfvars -lock=false"
+                        -var-file="terraform.tfvars" -lock=false
                     """
                 }
             }
