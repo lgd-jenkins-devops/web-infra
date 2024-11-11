@@ -1,5 +1,5 @@
 module "bucket" {
-  source = "git@github.com:lgd-jenkins-devops/terraform-modules.git//bucket?ref=feature/dev-bucket"
+  source = "git@github.com:lgd-jenkins-devops/terraform-modules.git//bucket?ref=v1.0.1"
   name = var.bucket.name
   location = var.bucket.location
   project_id = var.project_id
@@ -8,7 +8,7 @@ module "bucket" {
 }
 
 module "load-balance" {
-  source = "git@github.com:lgd-jenkins-devops/terraform-modules.git//load_balancer?ref=v1.0.0"
+  source = "git@github.com:lgd-jenkins-devops/terraform-modules.git//load_balancer?ref=v1.0.1"
   depends_on = [module.bucket]
   type = "http-bucket"
   bucket_name = module.bucket.bucket_name
