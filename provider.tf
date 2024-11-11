@@ -3,9 +3,3 @@ provider "google" {
   region  = var.region
 }
 
-terraform {
-  backend "gcs" {
-    bucket = var.backend
-    prefix = "terraform/state"
-  }
-}
