@@ -4,6 +4,7 @@ pipeline {
     environment {
         TF_VAR_project_id = credentials('web-gcp-project')
         TF_VAR_region = credentials('web-gcp-region')
+        TF_VAR_backend = credentials('web-gcp-backend')
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-jenkins-infra')
     }
 
