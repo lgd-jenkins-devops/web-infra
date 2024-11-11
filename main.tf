@@ -4,6 +4,7 @@ module "bucket" {
   location = var.bucket.location
   project_id = var.project_id
   bucket-type = var.bucket-type
+  web_config = var.web_config
 }
 
 module "load-balance" {

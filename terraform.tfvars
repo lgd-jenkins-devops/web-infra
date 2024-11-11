@@ -1,5 +1,5 @@
 bucket = {
-    name = "web-app"
+    name = "web-app-dev"
     location = "us-central1"
 }
 ssl = {
@@ -8,3 +8,8 @@ ssl = {
 }
 
 bucket-type = "static"
+
+web_config = {
+    "main" = "index.html"
+    "error" = "404.html"
+}

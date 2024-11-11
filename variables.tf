@@ -11,3 +11,6 @@ variable "ssl" {
 
 variable "bucket-type" {
 }
+
+variable "web_config" {
+}
