@@ -11,7 +11,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh 'terraform init'
+                    sh 'terraform init -lock=false'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     sh """
                         terraform plan \
-                        -var-file="terraform.tfvars"
+                        -var-file="terraform.tfvars -lock=false"
                     """
                 }
             }
@@ -38,7 +38,7 @@ pipeline {
                 script {
                     sh """
                         terraform apply \
-                        -var-file="terraform.tfvars" -auto-approve
+                        -var-file="terraform.tfvars" -auto-approve -lock=false
                     """
                 }
             }
