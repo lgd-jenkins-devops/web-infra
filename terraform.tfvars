@@ -6,3 +6,5 @@ ssl = {
     path_cert = "./cert/test.crt"
     path_key = "./cert/test.key"
 }
+
+bucket-type = static

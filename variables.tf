@@ -8,3 +8,6 @@ variable "bucket"{
 }
 variable "ssl" {
 }
+
+variable "bucket-type" {
+}
